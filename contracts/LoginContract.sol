@@ -5,14 +5,11 @@ contract Login {
     // Mapping to track if a user is registered
     mapping(address => bool) public isRegistered;
 
-    // Modifier to restrict access to registered users
-    modifier onlyRegistered() {
-        require(isRegistered[msg.sender], "You need to be a registered user");
-        _;
-    }
-
     // Event to notify when a user is registered
     event UserRegistered(address indexed userAddress);
+
+    // Event to notify when a user is already registered
+    event UserAlreadyRegistered(address indexed userAddress);
 
     // Function to register a user
     function register() public {

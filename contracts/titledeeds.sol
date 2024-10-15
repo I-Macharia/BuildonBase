@@ -1,8 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "./LoginContract.sol"; // Import Login contract for authentication
-
 contract LandTitleRegistry {
     // Struct to store land title information
     struct LandTitle {
@@ -18,6 +16,9 @@ contract LandTitleRegistry {
 
     // Event to notify of land title updates
     event LandTitleUpdated(uint256 indexed id, address indexed newOwnerAddress, string newLocation, uint256 newArea, string newDocumentHash);
+
+    // Event to notify when a land title is not registered
+    event LandTitleNotRegistered(uint256 indexed id);
 
     // Address of the government
     address public government;
@@ -75,6 +76,7 @@ contract LandTitleRegistry {
 
     // Function to get land title details
     function getLandDetails(uint256 _id) public view returns (
+        bool isRegistered,
         address ownerAddress,
         string memory location,
         uint256 area,
@@ -83,6 +85,6 @@ contract LandTitleRegistry {
         LandTitle storage title = landTitles[_id];
         require(title.isRegistered, "Land title not registered");
 
-        return (title.ownerAddress, title.location, title.area, title.documentHash);
+        return (title.isRegistered, title.ownerAddress, title.location, title.area, title.documentHash);
     }
 }

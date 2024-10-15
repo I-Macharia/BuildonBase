@@ -1,12 +1,37 @@
 {
-  "name": "erc20-template",
+  "name": "arthionchain",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "@openzeppelin/contracts": "^4.9.6"
+    "@openzeppelin/contracts": "^4.9.6",
+    "chai": "^5.1.1"
   },
   "devDependencies": {
-    "hardhat": "^0.0.7"
-  }
+    "hardhat": "^2.22.13"
+  },
+  "description": "Lands Registry on Chain in the Base Network",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "test/LandRegistry.test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/I-Macharia/LandRegistry.git"
+  },
+  "keywords": [
+    "Lands",
+    "Registry",
+    "OnChain",
+    "Base",
+    "Network",
+    "TheGraph"
+  ],
+  "author": "I-Macharia",
+  "bugs": {
+    "url": "https://github.com/I-Macharia/LandRegistry/issues"
+  },
+  "homepage": "https://github.com/I-Macharia/LandRegistry#readme"
 }

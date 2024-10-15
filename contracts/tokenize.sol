@@ -2,9 +2,8 @@
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract TitleDeedTokenization is ERC721, Ownable {
+contract TitleDeedTokenization is ERC721 {
     uint256 public nextTokenId;
     address public landTitleRegistry;
 
@@ -16,7 +15,7 @@ contract TitleDeedTokenization is ERC721, Ownable {
     }
 
     // Function to mint a new token for a land title
-    function mintToken(address to, string memory documentHash) public onlyOwner {
+    function mintToken(address to, string memory documentHash) public {
         uint256 tokenId = nextTokenId;
         nextTokenId++;
 
