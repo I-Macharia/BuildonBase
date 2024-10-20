@@ -1,5 +1,6 @@
-const { expect } = require('@chai');
-const { ethers } = require("hardhat");
+import { expect } from 'chai';
+import pkg from "hardhat";
+const { ethers } = pkg;
 
 describe("Land Title Registry", function () {
   let LandTitleRegistry, landTitleRegistry, Login, login, TitleDeedTokenization, tokenization;
@@ -54,7 +55,7 @@ describe("Land Title Registry", function () {
 
     // Verify that the document hash is correctly stored
     const documentHash = await tokenization.getDocumentHash(0);
- expect(documentHash).to.equal(scannedDocument);
+  expect(documentHash).to.equal(scannedDocument);
   });
 
   // Additional tests for Login contract
